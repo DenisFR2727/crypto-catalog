@@ -1,0 +1,13 @@
+button {
+    padding: 8px 20px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 5px;
+}
+.favorite-btn-coin.white {
+    background-color: white;
+}
+
+.favorite-btn-coin.yellow {
+    background-color: rgb(255, 221, 0);
+    color: rgb(7, 6, 6);
+}
