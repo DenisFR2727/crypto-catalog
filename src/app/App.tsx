@@ -1,5 +1,6 @@
 import Coins from '../components/coins-list/coins-list';
 import Header from '../components/header/Header';
+
 import './App.css';
 
 function App() {

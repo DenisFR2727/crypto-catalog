@@ -7,10 +7,12 @@ import './coins-list.css';
 import { useCrypto } from '../../context/hooks';
 import { Row } from './row';
 import Modal from './Modal';
+import { ModalCoinsInfo } from '../UI/ModalCoinsInfo';
 
 function Coins() {
     const { isCoins, filteredCoins, setIsCoins } = useCrypto();
     const isModalOpen = isCoins || (filteredCoins && filteredCoins.length > 0);
+
     return (
         <div
             style={{
@@ -23,12 +25,17 @@ function Coins() {
             <div className="btns-coins">
                 <FavoriteCoins />
             </div>
+
             {isModalOpen && (
                 <Modal onClose={() => setIsCoins(false)}>
                     <div className="modal-body-content w-full h-[500px]">
                         <AutoSizer>
                             {({ height, width }) => (
-                                <div className="is-coins-general">
+                                <div
+                                    id="coins-general"
+                                    className="is-coins-general"
+                                >
+                                    <ModalCoinsInfo />
                                     {isCoins ? (
                                         <div className="is-coins bg-gray-600 text-black text-center min-w-[300px] w-[100%] h-full flex items-center justify-center">
                                             No such coin has been found!

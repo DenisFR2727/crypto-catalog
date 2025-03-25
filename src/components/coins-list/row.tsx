@@ -2,6 +2,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useCrypto } from '../../context/hooks';
 import { faStar } from '@fortawesome/free-regular-svg-icons';
 import { faStar as faSolidStar } from '@fortawesome/free-solid-svg-icons';
+import { Button } from 'antd';
+
+import './coins-list.css';
 
 type RowItem = {
     index: number;
@@ -15,6 +18,8 @@ export const Row = ({ index, style }: RowItem) => {
         favoriteCoinsId,
         setToggleFavoriteCoin,
     } = useCrypto();
+
+    const { setSelectedCoinModalInfo, setIsModalOpenInfo } = useCrypto();
 
     const coin = filteredCoins?.[index];
 
@@ -40,8 +45,18 @@ export const Row = ({ index, style }: RowItem) => {
                         }
                     }}
                 />
-                <p className="p-2 flex">{coin?.name}</p>
-                <p className={percentChangeColor}>{percentChange}%</p>
+                <Button
+                    type="primary"
+                    onClick={() => {
+                        if (coin) {
+                            setSelectedCoinModalInfo(coin);
+                            setIsModalOpenInfo(true);
+                        }
+                    }}
+                >
+                    <p className="p-2 flex">{coin?.name}</p>
+                    <p className={percentChangeColor}>{percentChange}%</p>
+                </Button>
             </div>
         </div>
     );

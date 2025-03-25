@@ -3,6 +3,9 @@
     justify-content: start;
     gap: 30px;
     padding: 10px;
-    cursor: pointer;
-    user-select: none;
+}
+.ant-btn {
+    p {
+        margin-bottom: 0;
+    }
 }

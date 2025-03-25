@@ -2,6 +2,8 @@ button {
     padding: 8px 20px;
     background-color: rgb(255, 255, 255);
     border-radius: 5px;
+    cursor: pointer;
+    user-select: none;
 }
 .favorite-btn-coin.white {
     background-color: white;

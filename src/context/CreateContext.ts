@@ -19,6 +19,13 @@ export interface CryptoContextType {
         coinId: string
     ) => void;
     setIsCoins: React.Dispatch<React.SetStateAction<boolean>>;
+
+    selectedCoinModalInfo: CoinsData | null;
+    setSelectedCoinModalInfo: React.Dispatch<
+        React.SetStateAction<CoinsData | null>
+    >;
+    isModalOpenInfo: boolean;
+    setIsModalOpenInfo: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export const CryptoContext = createContext<CryptoContextType | null>(null);

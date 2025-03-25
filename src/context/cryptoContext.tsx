@@ -22,18 +22,12 @@ export const CryptoContextProvider = ({
     const [isFavoriteCoinsList, setIsFavoriteCoinsList] =
         useState<boolean>(false);
 
+    const [selectedCoinModalInfo, setSelectedCoinModalInfo] =
+        useState<CoinsData | null>(null);
+    const [isModalOpenInfo, setIsModalOpenInfo] = useState<boolean>(false);
+
     const { setToggleFavoriteCoin, favoriteCoinsId } = useToggleFavoriteCoins();
 
-    useEffect(() => {
-        localStorage.setItem('coins', JSON.stringify(filteredCoins));
-    }, [filteredCoins]);
-
-    useEffect(() => {
-        const itemsCoins = JSON.parse(localStorage.getItem('coins') as string);
-        if (itemsCoins) {
-            setFilteredCoins(itemsCoins);
-        }
-    }, []);
     // Filtered coins
     const searchQuery = (coinSearch: string) => {
         let filteredCoins = coins?.filter((coin) =>
@@ -103,6 +97,11 @@ export const CryptoContextProvider = ({
                 favoriteCoinsId,
                 setToggleFavoriteCoin,
                 setIsCoins,
+
+                selectedCoinModalInfo,
+                setSelectedCoinModalInfo,
+                isModalOpenInfo,
+                setIsModalOpenInfo,
             }}
         >
             {children}
