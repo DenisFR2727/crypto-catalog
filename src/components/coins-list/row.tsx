@@ -26,7 +26,7 @@ export const Row = ({ index, style }: RowItem) => {
     const percentChange = coin?.quotes.USD.percent_change_24h ?? 0;
 
     const percentChangeColor =
-        percentChange > 0 ? 'text-green-500' : 'text-red-500';
+        percentChange > 0 ? 'text-green-700' : 'text-red-700';
 
     const isFavorite = coin ? favoriteCoinsId.includes(coin.id) : false;
 
@@ -46,7 +46,9 @@ export const Row = ({ index, style }: RowItem) => {
                     }}
                 />
                 <Button
-                    type="primary"
+                    type="default"
+                    style={{ width: '100%', justifyContent: 'space-between' }}
+                    color="primary"
                     onClick={() => {
                         if (coin) {
                             setSelectedCoinModalInfo(coin);
@@ -54,8 +56,14 @@ export const Row = ({ index, style }: RowItem) => {
                         }
                     }}
                 >
-                    <p className="p-2 flex">{coin?.name}</p>
-                    <p className={percentChangeColor}>{percentChange}%</p>
+                    <p className="p-2 flex  font-bold">
+                        {coin?.name.length > 25
+                            ? coin?.name
+                            : coin?.name.slice(0, 25)}
+                    </p>
+                    <p className={`${percentChangeColor} font-bold`}>
+                        {percentChange}%
+                    </p>
                 </Button>
             </div>
         </div>

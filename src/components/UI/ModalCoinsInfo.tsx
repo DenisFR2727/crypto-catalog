@@ -28,7 +28,7 @@ export const ModalCoinsInfo = () => {
         <ConfigProvider>
             <div>
                 <Modal
-                    title="Coin"
+                    title={`Coin: ${selectedCoinModalInfo.name}`}
                     open={isModalOpenInfo}
                     onOk={handleOk}
                     onCancel={handleCancel}

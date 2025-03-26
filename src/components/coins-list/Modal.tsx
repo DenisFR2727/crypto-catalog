@@ -1,4 +1,5 @@
 import { createPortal } from 'react-dom';
+import './coins-list.css';
 
 interface ModalProps {
     children: React.ReactNode;
