@@ -4,6 +4,9 @@ import { ConfigProvider } from 'antd';
 import { useCrypto } from '../../context/hooks';
 
 import 'antd/dist/reset.css';
+import { CoinChart } from '../coin-chart/Coin-Chart';
+import { prepareChartData } from '../../api/api';
+
 export const ModalCoinsInfo = () => {
     const {
         selectedCoinModalInfo,
@@ -11,6 +14,8 @@ export const ModalCoinsInfo = () => {
         isModalOpenInfo,
         setIsModalOpenInfo,
     } = useCrypto();
+
+    const chartData = prepareChartData(selectedCoinModalInfo?.quotes.USD);
 
     const handleOk = () => {
         setIsModalOpenInfo(false);
@@ -45,6 +50,7 @@ export const ModalCoinsInfo = () => {
                         <strong>Change 24h:</strong>{' '}
                         {selectedCoinModalInfo.quotes.USD.percent_change_24h}%
                     </p>
+                    <CoinChart data={chartData} />
                 </Modal>
             </div>
         </ConfigProvider>

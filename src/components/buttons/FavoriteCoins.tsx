@@ -14,6 +14,7 @@ function FavoriteCoins() {
     return (
         <button
             className={`favorite-btn-coin ${hoverState ? 'yellow' : 'white'}`}
+            onClick={favoriteCoin}
             onMouseEnter={favoriteCoin}
         >
             FavoriteCoins
