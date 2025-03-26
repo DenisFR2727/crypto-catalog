@@ -1,0 +1,17 @@
+@media (max-width: 400px) {
+    .btns-timeframe {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+    .chart-wrapper {
+        height: 250px;
+        max-height: 400px;
+    }
+    .recharts-wrapper {
+        height: 300px !important;
+    }
+    .ant-modal-footer {
+        margin-top: 80px !important;
+    }
+}

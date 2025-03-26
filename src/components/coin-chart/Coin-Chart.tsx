@@ -11,6 +11,7 @@ import {
 import { useCrypto } from '../../context/hooks';
 import { useState } from 'react';
 import { prepareChartData } from '../../api/api';
+import './coin-chart.css';
 
 type TimeFrame = 'short' | 'mid' | 'long';
 
@@ -23,8 +24,12 @@ export const CoinChart = () => {
         timeFrame
     );
     return (
-        <div style={{ width: '100%', height: 300 }}>
+        <div
+            className="chart-wrapper"
+            style={{ width: '80%', height: '500px' }}
+        >
             <div
+                className="btns-timeframe"
                 title="Time-frame"
                 style={{
                     width: '100%',
