@@ -30,6 +30,10 @@ export const Row = ({ index, style }: RowItem) => {
 
     const isFavorite = coin ? favoriteCoinsId.includes(coin.id) : false;
 
+    const name = coin?.name ?? '';
+
+    const displayName = name.length > 25 ? `${name.slice(0, 20)}...` : name;
+
     return (
         <div style={style} className="bg-gray-600">
             <div
@@ -56,11 +60,7 @@ export const Row = ({ index, style }: RowItem) => {
                         }
                     }}
                 >
-                    <p className="p-2 flex  font-bold">
-                        {coin?.name.length > 25
-                            ? coin?.name
-                            : coin?.name.slice(0, 25)}
-                    </p>
+                    <p className="p-2 flex  font-bold">{displayName}</p>
                     <p className={`${percentChangeColor} font-bold`}>
                         {percentChange}%
                     </p>
