@@ -1,9 +1,10 @@
 import { Modal } from 'antd';
+import { CoinChart } from '../coin-chart/Coin-Chart';
 
 import { useCrypto } from '../../context/hooks';
 
 import 'antd/dist/reset.css';
-import { CoinChart } from '../coin-chart/Coin-Chart';
+import './style.css';
 
 export const ModalCoinsInfo = () => {
     const {
