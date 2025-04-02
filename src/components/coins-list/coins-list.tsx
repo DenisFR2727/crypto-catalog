@@ -2,14 +2,13 @@ import { FixedSizeList as List } from 'react-window';
 import AutoSizer from 'react-virtualized-auto-sizer';
 import SearchCoin from '../search-crypto/SearchCoin';
 import FavoriteCoins from '../buttons/FavoriteCoins';
-
-import './coins-list.css';
 import { useCrypto } from '../../context/hooks';
 import { Row } from './row';
 import Modal from './Modal';
 import { ModalCoinsInfo } from '../UI/ModalCoinsInfo';
 import FilterCoins from '../buttons/FilterCoins';
 
+import './coins-list.css';
 function Coins() {
     const { isCoins, filteredCoins, setIsCoins } = useCrypto();
     const isModalOpen = isCoins || (filteredCoins && filteredCoins.length > 0);

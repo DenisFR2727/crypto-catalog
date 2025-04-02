@@ -4,6 +4,9 @@
     gap: 30px;
     padding: 10px;
 }
+.btns-coins .ant-select {
+    height: 34.4px;
+}
 .ant-btn {
     p {
         margin-bottom: 0;
