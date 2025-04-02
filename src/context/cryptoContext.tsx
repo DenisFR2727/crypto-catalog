@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { CoinsData } from '../api/types';
 import { fetchCoins } from '../api/api';
-import { CryptoContext } from './CreateContext';
+import { CryptoContext, TimeFrame } from './CreateContext';
 import { useToggleFavoriteCoins } from './hooks';
 
 export const CryptoContextProvider = ({
@@ -25,6 +25,10 @@ export const CryptoContextProvider = ({
     const [selectedCoinModalInfo, setSelectedCoinModalInfo] =
         useState<CoinsData | null>(null);
     const [isModalOpenInfo, setIsModalOpenInfo] = useState<boolean>(false);
+    const [selectedTimeFrame, setSelectedTimeFrame] = useState<TimeFrame>({
+        label: '24h',
+        value: '24h',
+    });
 
     const { setToggleFavoriteCoin, favoriteCoinsId } = useToggleFavoriteCoins();
 
@@ -61,6 +65,7 @@ export const CryptoContextProvider = ({
                 setLoading(true);
                 const data = await fetchCoins();
                 setCoins(data);
+                console.log(coins);
             } catch (err) {
                 setError(`Не вдалося завантажити монети ${err}`);
             } finally {
@@ -101,6 +106,9 @@ export const CryptoContextProvider = ({
                 setSelectedCoinModalInfo,
                 isModalOpenInfo,
                 setIsModalOpenInfo,
+
+                selectedTimeFrame,
+                setSelectedTimeFrame,
             }}
         >
             {children}

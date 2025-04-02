@@ -10,7 +10,28 @@ type RowItem = {
     index: number;
     style: React.CSSProperties | undefined;
 };
+type TimeFrameKey =
+    | 'percent_change_15m'
+    | 'percent_change_30m'
+    | 'percent_change_1h'
+    | 'percent_change_6h'
+    | 'percent_change_12h'
+    | 'percent_change_24h'
+    | 'percent_change_7d'
+    | 'percent_change_30d'
+    | 'percent_change_1y';
 
+const timeFrameMap: Record<string, TimeFrameKey> = {
+    '15m': 'percent_change_15m',
+    '30m': 'percent_change_30m',
+    '1h': 'percent_change_1h',
+    '6h': 'percent_change_6h',
+    '12h': 'percent_change_12h',
+    '24h': 'percent_change_24h',
+    '7d': 'percent_change_7d',
+    '30d': 'percent_change_30d',
+    '1y': 'percent_change_1y',
+};
 export const Row = ({ index, style }: RowItem) => {
     const {
         filteredCoins,
@@ -19,12 +40,15 @@ export const Row = ({ index, style }: RowItem) => {
         setToggleFavoriteCoin,
     } = useCrypto();
 
-    const { setSelectedCoinModalInfo, setIsModalOpenInfo } = useCrypto();
+    const { setSelectedCoinModalInfo, setIsModalOpenInfo, selectedTimeFrame } =
+        useCrypto();
 
     const coin = filteredCoins?.[index];
 
-    const percentChange = coin?.quotes.USD.percent_change_24h ?? 0;
+    if (!coin) return null;
 
+    const key = timeFrameMap[selectedTimeFrame.label];
+    const percentChange = coin.quotes.USD[key] ?? 0;
     const percentChangeColor =
         percentChange > 0 ? 'text-green-700' : 'text-red-700';
 

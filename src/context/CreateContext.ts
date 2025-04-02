@@ -26,6 +26,14 @@ export interface CryptoContextType {
     >;
     isModalOpenInfo: boolean;
     setIsModalOpenInfo: React.Dispatch<React.SetStateAction<boolean>>;
+
+    selectedTimeFrame: TimeFrame;
+    setSelectedTimeFrame: React.Dispatch<React.SetStateAction<TimeFrame>>;
 }
 
 export const CryptoContext = createContext<CryptoContextType | null>(null);
+
+export interface TimeFrame {
+    label: string;
+    value: string;
+}

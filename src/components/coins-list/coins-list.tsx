@@ -8,6 +8,7 @@ import { useCrypto } from '../../context/hooks';
 import { Row } from './row';
 import Modal from './Modal';
 import { ModalCoinsInfo } from '../UI/ModalCoinsInfo';
+import FilterCoins from '../buttons/FilterCoins';
 
 function Coins() {
     const { isCoins, filteredCoins, setIsCoins } = useCrypto();
@@ -24,6 +25,7 @@ function Coins() {
             <SearchCoin />
             <div className="btns-coins">
                 <FavoriteCoins />
+                <FilterCoins />
             </div>
 
             {isModalOpen && (

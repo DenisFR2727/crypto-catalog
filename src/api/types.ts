@@ -7,7 +7,7 @@ export interface Quotes {
         market_cap_change_24h: number;
         percent_change_15m: number;
         percent_change_30m: number;
-        percent_change_1h: number;
+        percent_change_1h: number | undefined;
         percent_change_6h: number;
         percent_change_12h: number;
         percent_change_24h: number | undefined;
