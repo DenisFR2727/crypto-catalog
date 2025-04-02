@@ -1,5 +1,8 @@
 import { useState } from 'react';
 import { useCrypto } from '../../context/hooks';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faStar } from '@fortawesome/free-solid-svg-icons';
+
 import './style.css';
 
 function FavoriteCoins() {
@@ -17,7 +20,12 @@ function FavoriteCoins() {
             onClick={favoriteCoin}
             onMouseEnter={favoriteCoin}
         >
-            FavoriteCoins
+            {hoverState && (
+                <FontAwesomeIcon className="favorite-icon" icon={faStar} />
+            )}
+            <span className="favorite-btn-text align-middle">
+                FavoriteCoins
+            </span>
         </button>
     );
 }
