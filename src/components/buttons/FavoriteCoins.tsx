@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 
 import './style.css';
+import { Button } from 'antd';
 
 function FavoriteCoins() {
     const { setIsFavoriteCoinsList } = useCrypto();
@@ -15,18 +16,19 @@ function FavoriteCoins() {
     };
 
     return (
-        <button
+        <Button
             className={`favorite-btn-coin ${hoverState ? 'yellow' : 'white'}`}
             onClick={favoriteCoin}
             onMouseEnter={favoriteCoin}
+            icon={
+                hoverState && (
+                    <FontAwesomeIcon className="favorite-icon" icon={faStar} />
+                )
+            }
+            size="large"
         >
-            {hoverState && (
-                <FontAwesomeIcon className="favorite-icon" icon={faStar} />
-            )}
-            <span className="favorite-btn-text align-middle">
-                FavoriteCoins
-            </span>
-        </button>
+            <span className={`favorite-btn-text `}>FavoriteCoins</span>
+        </Button>
     );
 }
 export default FavoriteCoins;
