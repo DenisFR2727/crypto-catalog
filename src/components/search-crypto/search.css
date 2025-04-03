@@ -9,8 +9,8 @@
     padding: 10px;
     border: none;
     border-radius: 10px;
-    padding-left: 37px;
-    margin-left: 10px;
+    /* padding-left: 37px; */
+    margin-left: 3px;
     margin-right: 10px;
     caret-color: white;
     color: white;
@@ -18,7 +18,7 @@
     border: 2px solid #545d6a;
 }
 .search__coin:focus {
-    border-color: rgb(255, 191, 0);
+    border-color: rgb(255, 191, 0) !important;
 }
 .search__coin::placeholder {
     color: aliceblue;
@@ -29,4 +29,21 @@
     left: 1.1rem;
     color: white;
     pointer-events: none;
+}
+.ant-input-group-wrapper {
+    margin-right: 47px;
+    padding-right: 0;
+    border: none;
+}
+.ant-input-search-button {
+    padding: 0;
+    display: none;
+}
+.ant-input {
+    padding: 6px;
+    padding-left: 10px;
+    font-weight: 600;
+}
+.ant-input-affix-wrapper {
+    border-radius: 7px !important;
 }

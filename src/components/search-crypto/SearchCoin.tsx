@@ -1,8 +1,10 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
-import './search.css';
 import { useCrypto } from '../../context/hooks';
+import { Input } from 'antd';
+const { Search } = Input;
 
+import './search.css';
 function SearchCoin() {
     const { searchQuery } = useCrypto();
 
@@ -13,15 +15,18 @@ function SearchCoin() {
 
     return (
         <div className="search">
-            <FontAwesomeIcon
-                className="search__icon"
-                icon={faMagnifyingGlass}
-            />
-            <input
+            <Search
                 className="search__coin bg-gray-600 "
-                type="text"
-                placeholder="Search"
+                placeholder="Search coin"
                 onChange={handleChange}
+                style={{ width: 470 }}
+                enterButton={null}
+                prefix={
+                    <FontAwesomeIcon
+                        icon={faMagnifyingGlass}
+                        className="text-gray-400 mr-2"
+                    />
+                }
             />
         </div>
     );
